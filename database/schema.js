@@ -9,9 +9,10 @@ let ProductSchema = new Schema({
   name: String,
   brand: String,
   price: String,
-  description: [String],
-  sizes: [String],
-  colors: Array
+  description: String,
+  sizes: Array,
+  colors: Array,
+  images: Array
 });
 
 let Product = mongoose.model('Product', ProductSchema);
@@ -26,9 +27,14 @@ let product1 = new Product({
   price: '$1,500.00',
   description: 'Wild style is refined for the contemporary gent on an intricate jacquard-knit wool-blend sweater featuring a bold, fierce tiger face in front.',
   sizes: ['Medium', 'Large', 'X-Large', 'XX-Large'],
-  colors: [{'Black Gold': ['https://s3-us-west-1.amazonaws.com/n3rdstorm/top_1.jpeg',
-                           'https://s3-us-west-1.amazonaws.com/n3rdstorm/top_2.jpeg',
-                           'https://s3-us-west-1.amazonaws.com/n3rdstorm/top_3.jpeg']}]
+  colors: ['Black Gold'],
+  images: [
+    [
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/top_1.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/top_2.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/top_3.jpeg'
+    ]
+  ]
 });
 
 let product2 = new Product({
@@ -38,10 +44,15 @@ let product2 = new Product({
   price: '$98.00',
   description: 'A slick finish adds extra edge to stretchy faux-leather leggings flattered by a subtle control top.',
   sizes: ['X-Small', 'Small', 'X-Large'],
-  colors: [{'Black': ['https://s3-us-west-1.amazonaws.com/n3rdstorm/bottoms_1.jpeg',
-                      'https://s3-us-west-1.amazonaws.com/n3rdstorm/bottoms_2.jpeg',
-                      'https://s3-us-west-1.amazonaws.com/n3rdstorm/bottoms_3.jpeg',
-                      'https://s3-us-west-1.amazonaws.com/n3rdstorm/bottoms_4.jpeg']}]
+  colors: ['Black'],
+  images: [
+    [
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/bottoms_1.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/bottoms_2.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/bottoms_3.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/bottoms_4.jpeg'
+    ]
+  ]
 });
 
 let product3 = new Product({
@@ -51,12 +62,17 @@ let product3 = new Product({
   price: '$1,895.00',
   description: 'Striking, graffiti-inspired patterning adds to the edgy, avant-garde aesthetic of a dramatic thigh-high boot finished with the unmistakable lipstick-red sole.',
   sizes: ['6US / 36EU', '6.5US / 36.5EU', '7US / 37EU', '8.5US / 38.5 EU'],
-  colors: [{'Black/White': ['https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_1.jpeg',
-                            'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_2.jpeg',
-                            'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_3.jpeg',
-                            'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_4.jpeg',
-                            'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_5.jpeg',
-                            'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_6.jpeg']}]
+  colors: ['Black/White'],
+  images: [
+    [
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_1.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_2.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_3.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_4.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_5.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/shoes_6.jpeg'
+    ]
+  ]
 });
 
 let product4 = new Product({
@@ -66,10 +82,15 @@ let product4 = new Product({
   price: '$20,000.00',
   description: 'One hundred-fifteen sparkling pavé diamonds illuminate the sculptural Caviar metalwork of an elegant bracelet that makes a refined statement when worn solo.',
   sizes: ['Medium'],
-  colors: [{'Silver/Diamond': ['https://s3-us-west-1.amazonaws.com/n3rdstorm/accessory_1.jpeg',
-                               'https://s3-us-west-1.amazonaws.com/n3rdstorm/accessory_2.jpeg',
-                               'https://s3-us-west-1.amazonaws.com/n3rdstorm/accessory_3.jpeg',
-                               'https://s3-us-west-1.amazonaws.com/n3rdstorm/accessory_4.jpeg']}]
+  colors: ['Silver/Diamond'],
+  images: [
+    [
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/accessory_1.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/accessory_2.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/accessory_3.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/accessory_4.jpeg'
+    ]
+  ]
 });
 
 let product5 = new Product({
@@ -79,15 +100,22 @@ let product5 = new Product({
   price: '$180.00',
   description: 'One hundred-fifteen sparkling pavé diamonds illuminate the sculptural Caviar metalwork of an elegant bracelet that makes a refined statement when worn solo.',
   sizes: ['2 US (fits like 0)', '4 US (fits like 0-2)', '6 US (fits like 2-4)', '8 US (fits like 6-8)', '10 US (fits like 10-12)', '12 US (fits like 14)'],
-  colors: [{'Rust': ['https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_rust1.jpeg',
-                     'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_rust2.jpeg',
-                     'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_rust3.jpeg',
-                     'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_rust4.jpeg']},
-           {'Teal': ['https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal1.jpeg',
-                     'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal2.jpeg',
-                     'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal3.jpeg',
-                     'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal4.jpeg',
-                     'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal5.jpeg']}]
+  colors: ['Rust', 'Teal'],
+  images: [
+    [
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_rust1.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_rust2.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_rust3.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_rust4.jpeg'
+    ],
+    [
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal1.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal2.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal3.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal4.jpeg',
+      'https://s3-us-west-1.amazonaws.com/n3rdstorm/outerwear_teal5.jpeg'
+    ]
+  ]
 });
 
 allProducts.push(product1, product2, product3, product4, product5);
@@ -101,26 +129,24 @@ let fakeProductGenerator = (productCount) => {
     price: '$' + faker.commerce.price(),
     description: faker.lorem.sentences(),
     sizes: ['Small', 'Medium', 'Large', 'X-Large'],
-    colors: []
+    colors: [],
+    images: []
   });
 
-  // COLOR AND IMAGE GENERATOR
-    // Generates 3 random colors with 4 images each
+  // Generates 3 colors with 4 images each
   for (let i = 0; i < 3; i++) {
-    let imageLinks = [];
-    for (let j = 0; j < 4; j++) imageLinks.push(faker.image.image());
+    product.colors.push(faker.commerce.color());
 
-    let color = faker.commerce.color();
-    let colorObj = {};
-    product.colors.push(colorObj[color] = imageLinks);
+    let imageArr = [];
+    for (let j = 0; j < 4; j++) imageArr.push(faker.image.image());
+    product.images.push(imageArr);
   }
+  return new Product (product);
 };
 
+// Generates 95 fake products and pushes them to the allProducts array
+for (let i = 6; i <= 100; i++) {
+  allProducts.push(fakeProductGenerator(i));
+}
 
-// Generates 95 fake products and pushes them each to our allProducts array
-let generateAndSeedDB = () => {
-  for (let i = 6; i <= 100; i++) allProducts.push(fakeProductGenerator(i));
-  Product.insertMany(allProducts, () => db.close());
-};
-
-generateAndSeedDB();
+Product.insertMany(allProducts, () => db.close());
